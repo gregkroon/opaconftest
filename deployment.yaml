@@ -3,10 +3,12 @@ kind: Deployment
 metadata:
   name: hello-kubernetes
   labels:
-    app.kubernetes.io/name: mysql
-    app.kubernetes.io/component: database
-    app.kubernetes.io/part-of: wordpress
-    app.kubernetes.io/managed-by: helm
+    input.metadata.labels["app.kubernetes.io/name"]
+    input.metadata.labels["app.kubernetes.io/instance"]
+    input.metadata.labels["app.kubernetes.io/version"]
+    input.metadata.labels["app.kubernetes.io/component"]
+    input.metadata.labels["app.kubernetes.io/part-of"]
+    input.metadata.labels["app.kubernetes.io/managed-by"]
 spec:
   replicas: 3
   selector:
